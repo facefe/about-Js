@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        let obj = {
+            value: "obj"
+        }
+        var vlaue = 'window'
+
+        function show() {
+            console.log(this.value)
+
+        }
+
+        show.call(obj)
+        // === obj.show == show
+        // obj.show()
+        // delete obj.show
+
+
+        // 手写call 
+        Function.prototype.oCall = function (ctx) {
+            ctx.fn = this
+            // 这个fn 默认指向 调用的函数。
+            ctx.fn()
+            console.log(ctx.fn)
+            delete ctx.fn
+        }
+
+        show.oCall(obj)
+
+        //
+        Function.prototype.ocall = function () {
+            let ctx = arguments[0] || window
+            ctx.fn = this
+            // 谁调用this this指向谁。
+            // 这里 this 指向要应用coall  的函数。
+            // 上面那一句有点不是很明白。
+            let args = []
+            for (let i = 0; i < arguments.length; i++) {
+                args.push(`arguments[${i}]`)
+                let result = eval(`ctx.fn(${args.join(',')})`)
+                delete ctx.fn
+                return result
+            }
+        }
+
+        show.ocall(obj)
+        */
+
+        function show() {
+            console.log('什么是this')
+            console.log(this)
+        }
+        Function.prototype.oll = function () {
+            console.log(this)
+            // 
+        }
+        show.oll()
+        // 函数调用 oll 之后this 就是指向 show
+
+
+        function showone() {
+            this.a = 'a'
+            this.b = 'b'
+            console.log(window.a)
+            console.log(window.b)
+        }
+        showone()
+        let obj = {
+            // 对象里面没有this
+
+        }
+    </script>
+</body>
+
+</html>

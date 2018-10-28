@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        查看页面
+        1:相应时间 --1000
+        2:动画   刷新时间 16ms  
+        3:加载时间
+        渲染 css javascript setInterrval setTimeout 操作DON
+        css 
+        layout 布局 在页面中DOM 元素的大小 以及位置。 reflow
+        paint 绘图  元素的颜色和 图片背景 文本
+        composite 渲染层合并
+
+        javascript 优化javascript 执行效率
+        SetTimeout setInterval 定时器是不准的。 会放到时间队列的尾部去执行。
+        requestAnimationFrame (去看)
+        Workers 又是什么
+
+        css 的选择层级不应该过深。 不应该超过五层。
+        //layout 
+        流失布局。 flex 
+        innerHtml 方法要比creatElement 要好 。innertHtml是单纯改变一些属性。
+
+        渲染页面 --> DOM结构  虚拟DOM VDOM
+
+        DOM在内存中 :占用很大的内存。
+        虚拟DOM 在vue.js 2++ 和react 中用到
+        
+        */
+        let scr = document.createElement('script')
+        scr.src = './wer.js'
+        console.log(scr)
+
+        scr.onload = function () {
+            defer()
+        }
+        document.head.appendChild(scr)
+    </script>
+</body>
+
+</html>

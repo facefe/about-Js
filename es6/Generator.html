@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <script>
+        /*  function* gener() {
+            console.log('hello')
+            yield console.log('world')
+            return '你好,世界'
+        }
+        let func = gener()
+        /* 
+         for (let i = 0; i < 8; i++) {
+             func.next()
+         }
+         console.log(func)*/
+
+        /*function* demo() {
+            console.log('我不知道')
+            yield console.log('世界')
+            yield console.log('你好')
+
+        }
+        let _demo = demo()
+
+        _demo.next()
+        _demo.next()
+        _demo.next()
+
+        function* deno() {
+            let a = 123
+            yield function () {
+                console.log(1234)
+            }
+            yield console.log(a)
+            yield console.log(a)
+            yield console.log(a)
+            yield console.log(a)
+        }
+
+        let _deno = deno()
+        _deno.next()
+        _deno.next()
+
+        function* foo(x = 1) {
+            var y = 2 * (yield(x + 1))
+            var x = yield(y / 3)
+            return (x + y + z)
+        }
+
+        let f = foo()
+        f.next()
+        console.log(f.next())
+        console.log(undefined * 2)
+
+
+
+
+        let tg = function* () {
+            yield console.log(1234)
+            console.log(5678)
+
+
+        }
+        var ar = tg()
+
+        // generator.prototype.rturn 
+        // 调用在本轮返回return的值 如果遇到finally 则等到finally 结束后才会返回。
+        function* gen() {
+            yield 1
+            yield 2
+            yield 3
+            yield 4
+        }
+        let yi = gen()
+
+        let funca = function* () {
+            yield 1;
+            try {
+                yield 2;
+            } finally {
+                yield 3;
+                yield 4;
+            }
+            yield 5;
+            yield 6;
+
+        }
+
+        let funcb = funca()
+
+        //规则 是 只有在 输出 1 2 之后调用 return 语句，才会等到 finally 之后的语句执行完在执行return 返回值并且结束，如果不是在finally 开始时 return 语句，则就会立即结束
+
+        //  yiele* 的语法。
+        //  如果在generator中调用另一个generatot 函数，是 不会有任何效果的
+        // 这时候就需要用到 yiele * 方法*/
+        function* foo() {
+            yield 1
+            yield 2
+            return 8
+
+        }
+
+        /*function* fooa() {
+            yield 'a'
+            yield 'b'
+            yield* foo()
+            yield 'd'
+        }*/
+        let foov = fooa()
+        // 输出 a, b , c , 1 , 2, d
+        //====
+        function* fooa() {
+            yield 'a'
+            yield 'b'
+            let ret = yield* foo()
+            yield ret
+            // 在这里yield 不会返回 return 8 就是不会执行返回值。
+            //3
+            yield 'c'
+        }
+
+        //* 号就等于 for of 循环
+
+        function* F() {
+            this.a = 1
+            yield this.b = 2
+            yield this.c = 3
+        }
+        let obj = {}
+        let fff = F.call(obj)
+
+
+        let v = function () {
+           
+        }
+        let vb = {}
+        v.call(vb)
+        console.log(vb.a, vb.b, vb.c)
+    </script>
+</body>
+
+</html>

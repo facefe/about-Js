@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //关于原型链的一些知识。
+        // 构造函数一般以大写字母开头。
+        function Person(name = '张', age = 23) {
+            this.name = name
+            this.age = age
+            this.sayName = function () {
+                console.log(name)
+            }
+        }
+        let person1 = new Person()
+        person1.name = '张宇豪'
+        person1.sayName()
+        // 基于原型模式
+        // 实例有一个__proto__ 属性指向自己的原型
+        // Person 的prototype 属性指向原型
+        // 原型的constructor 指向 构造函数
+        // console.log(person1.__proto__ === Person.prototype) // true
+        // console.log('是' + (Person === Person.prototype.constructor))
+
+        // 1:
+        // hasOwnProperty  实例的属性存在于实例上才会返回true
+        // console.log(person1.hasOwnProperty('name'))  除了第一个首字母都是大写
+        // 只要函数中 有方法 in 操作符就会返回true 不论是位于原型上 还是 实例上
+        // for in 是用来访问对象的
+        /*
+                Person.prototype = {
+                    
+        
+                }*/
+        //  这种语法本质上是重写了 Person的原型链  因此 原型的constructor 就不再指向 Perosn了
+        Person.prototype = {
+            thods: 'none'
+        }
+        // console.log(Person.prototype.constructor)    ƒ Object() { [native code] }
+        // 明白了 这里 Person.prototype 重写的原型是一个对象。寻找对象的原型constructor 本身是没有的
+        // 所以一路找到Ovject的prototype 上面。于是指向Object
+        // console.log(person1.constructor)   就像这个 指向Person一样
+    </script>
+</body>
+
+</html>

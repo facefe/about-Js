@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js异步加载的几种方法。
+        // 1:defer 
+        // <script   defer= 'defer'><\/script>
+        // 只适用于IE8 以及以下。
+        // 而且只有页面完全解析完成之后 才会执行。 script 里面也可以征正常写代码会执行。
+
+
+        //2: async 适用于其他浏览器。(IE8 以及以下除外)
+        // <script   async = 'async'><\/script>
+        //等到代码下载完成就会加载。
+
+
+        // 第三种方法 动态创建scrippt 标签
+
+        function loadScript(url, callback) {
+            var script = document.createElement('script')
+            if (script.readyState) {
+                script.onreadystatechange = function () {
+                    if (script.readyState == 'complete' || script.readyState == 'loaded') {
+                        callback()
+                    }
+                }
+            } else {
+                script.onload = function () {
+                    callback()
+                }
+
+            }
+            script.src = url
+            document.head.appendChild(script)
+
+        }
+        loadScript('./wer.js', defer)
+
+        function con() {
+            console.log('到底是什么鬼')
+
+        }
+    </script>
+</body>
+
+</html>

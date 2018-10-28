@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let map = new Map([
+            ['name', '张'],
+            ['age', 23],
+            ['like', 'gril']
+        ])
+        let set = new Set([1, 2, 3, 4, 5, 6, 7])
+        var arrN = new Array('十', '九', '八')
+
+        let mapEntries = map.entries()
+        let setEntries = set.entries()
+        let attEntries = arrN.entries()
+
+
+
+        for (let [i, k] of mapEntries) {
+            console.log(i, k)
+        }
+
+        // 只要是迭代器 都可以调用for of循环
+
+        // 迭代器的遍历过
+
+        for (let i of arrN.values()) {
+
+            console.log(i)
+        }
+
+        //  所有的迭代器都有Symbol.iterator 方法
+
+        //  原理:数组中迭代器指针下移,每次指针指向下一个索引
+
+        //  map 和set 是怎么迭代的 会将邻接列表，转化单向列表。每次指针下移
+
+
+        //  对象是不是可以迭代的
+
+        //  对象是可以迭代的
+
+        //   数据是有序的，就是可以迭代的
+
+        // 字符串 都是可以迭代的。
+
+        // nodelist arguments 是类数组。
+        // 类数组是可以迭代的。
+
+        // 生成器 Generator
+
+        // 用于生成迭代器
+
+        // 生成器 是函数 * yield
+
+        // 普通函数是不能使用 yield 的
+
+        //必须放在 * 标注的函数里面。
+
+        let nextI = 0
+
+        function nextitem(arr) {
+
+            return {
+                next: function () {
+                    if (nextI < arr.length) {
+                        return {
+                            value: arr[nextI++],
+                            done: false
+                        }
+                    } else {
+                        return {
+                            value: undefined,
+                            done: true
+                        }
+                    }
+                }
+            }
+        }
+
+        var iten = nextitem([1, 2, 3, 4, 5])
+        iten.next()
+        console.log(nextI)
+    </script>
+</body>
+
+</html>

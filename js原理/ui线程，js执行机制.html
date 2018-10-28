@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!-- 
+        js引擎线程(解释执行js代码，用户输入，网络请求)
+        GUI 线程 (绘制用户界面,于js主线程是互斥)
+        http 网络请求线程(处理get  post 等返回的结果后将会点函数推入任务队列 )
+        定时器触发线程，(setInterval setTimeout 等待时间后吧任务执行函数推入任务队列)
+        浏览器时间处理线程 (将click mouse 等交互时间发生后将这些事件翻入事件队列中)
+
+
+        // UI 有一个主线程 负责协调
+
+        // js 单线程 同一时间只能做一件事情。
+
+        // 异步事件进入 Event Table 并注册函数
+
+        // SSR 技术
+     -->
+
+    <script>
+        function outer(qt) {
+            debugger
+
+            function inner(it) {
+                console.log(it)
+            }
+            inner(20)
+            console.log(qt)
+        }
+        outer('执行栈')
+    </script>
+
+    <!-- 
+        0:代码没有执行的时候，执行栈为空
+        1:outer函数执行的时候，创建了一帧，这一帧包含形参，局部变量（预编译过程）
+         然后把这一帧压入栈中。
+        2:然后执行 outer中的代码，执行 inner函数
+        3:创建新的一帧，同样的形参 局部变量 压入栈中。
+        4:inner 执行完毕 弹出栈
+        5:outer 执行完毕 弹出栈
+        6:执行栈为空
+
+        // ajax 调用的是外部的api
+
+        根据html 标准 为4 毫秒。
+     -->
+
+
+
+
+</body>
+
+</html>

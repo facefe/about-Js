@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 本节 正则表达式。
+        // g:全局匹配
+        // i:不区分大小写
+        // m:多行模式。
+
+        // 元字符必须转义 元字符包括:
+        // ( ) [ ] \ ^ $ | ? * + .
+
+        // 正则表达式:转义字符
+        //var str = '12345'
+
+        //var str1 = ' \' \''
+
+        //console.log(str1)
+
+        //var str2 = 'abc\ndefg'
+
+        //console.log(str2)
+        // 回车 相当于 \r\n
+        // linux 回车 == \n
+        // \t == table
+        // \f
+
+        //系统规定 字符串不能多行写
+
+        //加 \ 字符串换行
+
+        //var str = '1234'
+        // var reg = /12/
+        // var a = reg.test(str) //test 测试方法。
+        // console.log(a)
+        // 创建正则表达式的两种方法。
+
+        //let reg = new RegExp('abce', 'm')
+
+        //let reg1 = /abcd/m
+
+        // 但是reg !== reg1
+        //let reg2 = RegExp(reg)
+
+        // 则 reg == reg2
+
+        // 这里解释多行匹配的用法/
+        var reg = /^a/gm
+        var str = 'avce\na'
+        var a = str.match(reg)
+        console.log(a)
+
+        /* 两个方法；
+         str.match()
+         reg.test()*/
+        /*一个方括号点代表一位
+        ^ 尖角号放在[]里面代表 非
+        (|) 代表 或 */
+
+        //let reg = /[]/g
+
+        /*. 查找单个字符，除了换行符，和
+        \w === [0-9A-z_]
+        \W === [^\w]
+        \s 代表空格字符
+        \b === 单词边界
+        n+ 一次到到此
+        n* 0 到多次
+        
+        贪婪匹配原则。
+        */
+
+        //写个正则表达式，表示字符串首尾是否含有数字
+        /*reg 的属性
+        trg.exec()  游标lastindex
+        var reg = /(\w)\1(\w)\2(\w)\3/
+        
+        把the-first-name 变成 theFirstName
+        */
+
+        var reg = /-(\w)/g
+        var str = 'the-first-name'
+        var a = str.replace(reg, function ($, $1) {
+            return $1.toUpperCase()
+        })
+        console.log(a)
+        console.log(str)
+
+        var oStr = 'aaaaaaaaaabbbbbbbbbbbbbcccccddddddd'
+        
+    </script>
+</body>
+
+</html>
