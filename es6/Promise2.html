@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // promise
+        // 三种状态:pending fufilled reject 
+        // promise只要建立 就不可以撤销。
+
+        /*  function timeout(ms) {
+              return new Promise((resolve, rejuct) => {
+                  setTimeout(resolve, ms, 'done')
+              })
+          }
+          timeout(100).then((data) => {
+              console.log(data)
+          })*/
+        // 怎么感觉又负责了呢
+
+        // setTimeout(function(),1000, 第三个参数)
+        // settimeout 的第三个参数 代表 func 里面传入的参数。
+
+        /* let pro = new Promise((resolve, reject) => {
+              console.log('123')
+              resolve('注意执行顺序')
+          })
+          // promise  对象被创建后会立即执行。
+          // 然后then 指定的回调函数会在当前脚本所有的同步任务执行完成之后执行。
+          // 说明resolve 和 reject 是异步任务。
+          console.log('first')
+          pro.then(function (value) {
+              console.log(value)
+          })*/
+
+        // 图片加载
+
+        /*   function loadImg(url) {
+               return new Promise((resolve, reject) => {
+                   let img = new Image()
+                   img.onload = function () {
+                       resolve('done')
+                       // 不能直接写 onload = resolve()
+                   }
+                   img.onerror = function () {
+                       reject('error')
+                   }
+                   img.src = url
+               })
+           }
+           loadImg('../es').then(function (value) {
+                   console.log(value)
+               },
+               function (data) {
+                   console.log(data)
+               })*/
+        //      promise的then方法是添加在promise.prototype上面的
+        //      而且then方法返回的是另一个Promise对象。所以可以链式调用。
+
+
+        let func = new Promise(function (resolve, reject) {
+            console.log('123')
+            // 这里就不会触发resolve 函数，因为没写
+            // 但是如果这里面发生错误就会触发reject 函数 有捕捉错误的能力。
+        })
+        func.then(() => {
+            console.log('第二次success')
+        }, () => {
+            console.log('第二次fail')
+        })
+        // 可见 rejuct 是用来捕捉错误的。
+
+        // 这样无论怎样 第二个then方法返回的都是 resolve  这种写法没有什么意义。
+        // 只有上面的函数发生错误才会调用失败状态。
+
+        // catch方法返回的还是一个Promise 对象 所以后面还可以接着用then方法。
+
+        // Promies.all() 
+        // 方法传入一个数组promise 对象。
+        // 只有所有的数组promise都变为resolve .all 方法才会返回 resolve 组成的数据。 
+        // 只要有一个 promise 返回 reject .all 方法 就返回 那个reject
+
+        // catch 的用法。
+
+        let prom = new Promise(function (resolve, reject) {
+            throw new Error('failed')
+        })
+        prom.catch((err) => {
+            console.log(err)
+        })
+        // 用来捕捉错误。
+        // 等价写法
+        let pr = new Promise(function (resolve, reject) {
+            try {
+                throw new Error('失败')
+            } catch (e) {
+                reject(e)
+            }
+        })
+        pr.catch(function (data) {
+            console.log(data)
+        })
+
+        // 第三种写法。
+        let ps = new Promise(function (resolve, reject) {
+            reject(new Error('第三种失败'))
+        })
+        ps.catch(function (data) {
+            console.log(data)
+        })
+        // 都是相同的写法。
+
+        // 但是在reject() 函数执行之后再抛出错误就没有用了。
+
+
+        // 需要注意到是promise 中的错误不会被跑到外边
+
+        let Sa = function () {
+            return new Promise(function (resolve, reject) {
+                throw new Error('失败')
+            })
+        }
+        Sa().then(function () {
+            console.log('everything is great ')
+        })
+        //虽然浏览器会把错误显示再控制台，但是不会终止下面程序的执行。
+        console.log('12')
+
+        Promise.resolve().catch(function () {
+            console.log('failed')
+        }).then(function () {
+            console.log('success')
+        })
+
+        // 如果catch前面的函数没有报错。就会忽略catch 方法。而将promise 向下传递。
+
+
+
+        //  还可以用后面的catch 来捕获前面一个catch 里面的错误。
+    </script>
+</body>
+
+</html>

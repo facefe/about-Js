@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="./vue.js"></script>
+    <div id="ajax">
+        <div v-on:click="getNews">点击获取新闻</div>
+        <div v-html="message"></div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#ajax',
+            data: {
+                message: ''
+            },
+            methods: {
+                getNews() {
+                    let vueThis = this
+                    let ajax = new Promise(function (resolve, reject) {
+                        let xhr = new XMLHttpRequest()
+                        xhr.open('GET', './getNews.php', true)
+                        xhr.send(null)
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4) {
+                                let xhrStatue = xhr.status
+                                if (xhrStatue === 200 || xhrStatue === 304) {
+                                    resolve(xhr.responseText)
+                                } else {
+                                    reject(xhrStatue)
+                                }
+                            }
+                        }
+                    })
+                    ajax.then(function (data) {
+                        vueThis.message = printNews(data)
+                    }).catch(function (err) {
+                        console.log(`出现错误,错误代码为${err}`)
+                    })
+
+                    function printNews(data) {
+                        let datnew = JSON.parse(data),
+                            str = ''
+                        datnew.forEach(function (ele, value) {
+                            str = str + `<li>${ele.title}</li>`
+                        })
+                        str = `<ul>${str}</ul>`
+                        return str
+                    }
+
+                }
+
+            }
+
+        })
+    </script>
+    <script>
+    </script>
+
+</body>
+
+</html>
