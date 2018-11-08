@@ -1,0 +1,101 @@
+同源策略：域名，协议，端口相同。不同源的客户端脚本（javascript ActiveScript）在没有明确的授权的情况下，不能读写对方的资源。
+https://www.baidu.com:443/
+https 在ssl 层的加密。
+http://www.baicu.com:80/
+http://www.localhost:8080/demo.html
+
+http://localhost/web/ajax/deno/index.html
+
+http://localhost/web/ajax/demo/getNews.html
+
+https://zhidao.baidu.com
+
+http://
+域名是倒着解析的。
+.com 开始解析 顶级域名
+baidu.com (一)二级域名
+
+
+www的扩展：internet 提供的主要有www.
+（文件传输)ftp （电子邮件 e-mail）电子邮件
+远程登陆 （teinet）
+没有 www的域名叫做 裸域名。
+
+裸域名只能绑定a 记录。
+裸域名不能绑定 c 记录（c记录叫做别名。）
+
+裸域名的cookie 作用范围大。
+
+端口对应着不一样的服务。
+80 默认表示网站
+
+但不带www是不一样的。
+
+Ajax 是受到同源策略的影响。
+
+会报错的。
+
+tcp 的三次握手。
+
+三次握手
+先由客户端发送一个SYN 包。
+然后服务器接收到 SYN 包之后。将SYN + 1 
+并且自己再加上一个SYN 包 一同返回返回发送给刻客户端
+
+ack包就是将syn包加上1 返回。
+
+然后即使发送报文。
+
+大家都认识 的报文。
+
+然后经历四次挥手的过程。
+
+三次挥手和四次握手 都是建立在 tcp协议之下的。
+
+udp 协议。 可能容易丢包。
+
+报文是前端需要识别的。
+
+http1.1 是可以实现常连接的。在一定时间内 连接不会断开。
+
+第一行叫请求行。
+
+Accept :
+
+Referer :网址。
+
+Content-type 编码类型。
+
+Host :主机域名 是没有协议的
+
+content-length：内容的长度。
+
+Cache-Control :缓存。
+Origin :源网址 指的是你发送请求的网址。
+
+请求主体:
+
+
+常见的状态码：
+
+psot &get 的不一样
+
+get 请求是要将请求内容放在url 的后面的。或者使用cookie 传参数。
+
+get 请求长度是因为浏览器的url 长度是收到限制的。
+
+post 请求是要将 请求的数据放在 请求主体中的。
+而且psot 是长度比较长的，
+post 长度是因为服务器安全的原因。
+
+浏览器的缓存机制。（http）
+304 重定向 （缓存指向浏览器缓存。）
+
+
+
+
+
+
+
+
+
