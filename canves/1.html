@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #oCanves {
+            margin: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<!-- 
+    IE9 之前是不支持canvse 的
+ -->
+
+<body>
+    <canvas id="oCanves" width="400px" height="400px">
+
+    </canvas>
+    <script>
+        // canves 是需要通过sctipt来描绘的。
+        let canves = document.getElementById('oCanves'),
+            // 上下文对象
+            ctx = canves.getContext('2d')
+        ctx.moveTo(100, 100)
+        ctx.lineTo(150, 150)
+        ctx.lineTo(200, 100)
+        ctx.lineTo(100, 100)
+        ctx.closePath() // 闭合曲线
+        ctx.strokeStyle = 'yellow'
+        ctx.lineWidth = '20'
+        ctx.stroke() // 描边
+        ctx.fillStyle = 'deeppink'
+        ctx.fill()
+        // webGl 了解一下
+        //同一个路径上 会有覆盖效果。
+
+        // 让两个 元素不在同一个路径上。
+        ctx.beginPath() // 重新开启一个路径。
+        // 矩形 
+        ctx.rect(200, 200, 100, 100)
+        ctx.lineWidth = '1'
+        ctx.stroke()
+        ctx.fillStyle = 'green'
+        ctx.fill()
+        // fillRact()
+        // strokeRact()
+        // 不用geginPath() 上面两个是单独的子路径。
+        // 擦除区域 clearRact()
+
+        // 但是好像不是很简单呀 canves canves会优化很多东西
+        //
+
+        // 弧形 arc(x , y, r ,开始弧度,结束弧度, 方向)
+        ctx.beginPath()
+        ctx.arc(250, 250, 100, 0, Math.PI, false)
+        ctx.fill()
+        bjde1122
+    </script>
+</body>
+
+</html>
