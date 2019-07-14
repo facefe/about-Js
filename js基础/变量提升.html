@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /**
+     *   主要 理解预编译的知识。
+     *
+     *   主要是 预编译再遇到函数名称和变量名称相同时候的情况
+     *
+     *   在这时候函数会首先得到提升 然后才是变量。
+     */
+
+    /**
+     * 预编译环境分为函数环境和全局环境
+     * 函数预编译分为四步
+     * 1：创建 ao对象
+     * 2：找到所有的函数声明。 在ao对象上内定义函数名称 在堆内存中加载函数体 然后将引用地址赋给函数名称变量。
+     * 3：找到形参和变量声明 为 undefined 但是注意的是 如果这时候出现函数名和变量名称重名的情况 会跳过赋值过程
+     * 4：形式参数和实际参数相统一
+     *
+     * 全局预编译全去掉形式参数和实际参数相互统一的过程即可/
+     */
+
+
+    // 一个栗子
+    // foo();
+    // var foo;
+    // function foo() {
+    //     console.log(1);
+    // }
+    // foo =  function () {
+    //     console.log(2);
+    // };
+    // console.log(foo);
+
+    /**
+     * 预编译过程为
+     *
+     * foo (变量存放内存地址) 指向一个堆内存地址 对内存地址中存放函数体。
+     * foo();
+     * foo = function () {}
+     *
+     *
+     */
+
+    // 另外 js 中没有块级作用域 so
+    // func();
+    // var a = true;
+    // if (a) {
+    //     function func() {
+    //         console.log(1)
+    //     }
+    // } else {
+    //     function func() {
+    //         console.log(2)
+    //     }
+    // }
+
+    // 会报错？
+    // 在if 语句中函数声明 会被理解为函数表达式 func = function () {} 这样。
+    //
+
+    // fun ();
+    // for (var i = 0; i < 10; i ++) {
+    //     function fun() {
+    //         console.log(1)
+    //     }
+    // }
+
+    // 同报错
+
+    // var b = 10;
+    // (function b(){
+    //     b = 20;
+    //     console.log(b);
+    // })();
+
+
+    /**
+     * 函数表达式与函数声明不同，函数名只在该函数内部有效，并且此绑定是常量绑定。
+     * 对于一个常量进行赋值，在 strict 模式下会报错，非 strict 模式下静默失败。
+     * IIFE中的函数是函数表达式，而不是函数声明
+     *
+     *这样理解 具名自执行函数 会将函数名称保存为 自己内部的一个属性且是常量属性 不允许更改。
+     *
+     * 官方解释
+     * 作为函数名的标识符（在这里是 A ）只能从函数体内部访问，在函数外部访问不到 (IE9+)。（kangax
+     * 有一篇 博客 详细讨论了 NFE 以及 IE6~8 的 JScript bug，推荐阅读！） ES5 Section
+     *  13 特别提及了这一点
+     *
+     *  绑定为函数名的标识符（在这里是A）不能再绑定为其它值，即该标识符绑定是不可更改的（immutable），
+     *  所以在 NFE 函数体内对 A 重新赋值是无效的。ES5 Section 13 详细描述了创建 NFE 的机制
+     */
+
+    // var a = 10;
+    // (function n() {
+    //     n = function () {}
+    //     console.log(n);
+    // })()
+
+
+    // 比较神奇的东西
+    // 遵循原则 只是使用搭建都看得计较懂的代码 但是会的多可以更快的解决bug
+</script>
+</body>
+</html>
