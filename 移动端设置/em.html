@@ -12,44 +12,46 @@
             margin: 0px;
             padding: 0px;
         }
+        .show{
+            width: 7.5rem;
+            height: 7.5rem;
+            background: #ccc;
+        }
     </style>
     <script>
         /**
          * 第一中解决方案 js 适配
          */
-        (function () {
-            let html = document.documentElement;
-            let width = html.clientWidth;
-
-            // 分数 16
-            console.log(width);
-            html.style.fontSize = width / 16 + 'px';
-        })()
+        // (function () {
+        //     let html = document.documentElement;
+        //     let width = html.clientWidth;
+        //     // 分数 16
+        //     console.log(width);
+        //     html.style.fontSize = width / 16 + 'px';
+        // })()
 
         /**
-         * js 适配第二种解决方案 比较好
+         * 第二种解决方案 js 适配 比较好
          */
-
         (function (doc, win, designWidth) {
             const html = document.documentElement;
             // const dpr = win.devicePixelRatio; dpr
-
             const refreshRem = () => {
                 const clientWidth = html.clientWidth;
                 if (clientWidth >= designWidth) {
-                    html.style.fontSize = '100px'
+                    html.style.fontSize = '100px';
                     /**
                      * 给宽度一个最大值 如果设备的宽度已经超过设计稿的尺寸了。
                      * 统一按照一个值去计算
                      */
                 } else {
-                    // html.style.fontSize = 16 * clientWidth / 375 + 'px';
+                    // html.style.fontSize = 16 * (clientWidth / 375) + 'px';
+
                     /**
                      *  clientWidth /  375 * 16
                      *  clientWidth / (375 / 16)
                      *
                      */
-
                     html.style.fontSize = 100 * (clientWidth/designWidth) + 'px';
                 }
             };
@@ -58,34 +60,27 @@
         })(document, window,750)
     </script>
     <style>
-        .show {
-            width: 16rem;
-            height: 200px;
-            background: #ccc;
-        }
+
     </style>
 </head>
 
 <body>
 <div>
-    rm 是作为父级元素的大小
-    rem 适配原理 把所有的设备都分成相同的若干份
-    在计算元素宽度所占的份数
+    <!--rm 是作为父级元素的大小-->
+    <!--rem 适配原理 把所有的设备都分成相同的若干份 再计算元素宽度所占的份数-->
 </div>
 <script>
     /*
-    1:元素适配的宽度 算出来的
+    1: 元素适配的宽度 算出来的
     2：元素在设计稿中的宽度 量出来的
     3：列数 随便给  100(比较好)
     4：一列的宽度 算出来
     5：元素实际站的列数 算出来
      */
-
-
     /**
      * rem适配就是一个百分比
      * 将屏幕分为 如若干分数 无论适配的是什么移动端 所占的分数是相同的。
-     * 然后只是计算UI设计稿各个部分所占的分数。
+     * 实际上只是还原UI 设计稿 然后因为因为各个设备所占的分数相同, 所以所占的百分比相同 所以做到适配。
      *
      *
      * html{
@@ -94,22 +89,17 @@
      *
      *
      */
-
-
     /**
      * 设置html 根节点的宽度的两种方式
      * js方式 1：
      */
-
     // 默认应该放在head标签里面
-
     /**
      * 真正切图的时候
      * 1：算 rem 还是根据设备的实际的css像素算
      * 2：量出一个元素在设计稿中的宽度
      * 3：拿这个宽度去除以dpr的值后，再去换算rem
      */
-
 </script>
 
 <div class="show"></div>
