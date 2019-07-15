@@ -199,6 +199,26 @@
     //
     //
     // //  还可以用后面的catch 来捕获前面一个catch 里面的错误。
+
+    // let p = new Promise(function (resolve, reject) {
+    //     resolve('结果')
+    //     })
+    // setTimeout(function () {
+    //     p.then(function (res) {
+    //         console.log(res);
+    //     })
+    // }, 2000)
+
+    function F() {
+        console.log(this)
+        function f1() {
+            console.log(this)
+        }
+        f1();
+    }
+
+    let f = new F();
+    F
 </script>
 </body>
 

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function PromiseM(executor) {
+    var self = this;
+    self.status = "padding";
+    self.resolveValue = null;
+    self.rejectReason = null;
+    self.resolveCallBackList = [];
+    self.rejectCallBackList = [];
+    function resolve(value) {
+        if (self.status === "padding") {
+            self.status = "Fulfilled";
+            self.resolveValue = value;
+            self.resolveCallBackList.forEach(function (ele) {
+                ele(value);
+            })
+        }
+    }
+
+    function reject(reason) {
+        if (self.status === "padding") {
+            self.status = "Rejected";
+            self.rejectReason = reason;
+            self.rejectCallBackList.forEach(function (ele) {
+                ele(reason);
+            })
+        }
+    }
+
+    try {
+        executor(resolve, reject)
+    }
+    catch (e) {
+        reject(e);
+    }
+}
+
+PromiseM.prototype.then = function (onFulfilled, onRejected) {
+    var self = this;
+    if (self.status === "Fulfilled") {
+        onFulfilled(self.resolveValue)
+    } else if (self.status === "Rejected") {
+        onRejected(self.rejectReason)
+    }
+    if (self.status === "padding") {
+        self.resolveCallBackList.push(onFulfilled);
+        self.rejectCallBackList.push(onRejected);
+    }
+};
+
+let f = new PromiseM(function (resolve, reject) {
+        setTimeout(function () {
+            resolve(111)
+        })
+});
+    setTimeout(function () {
+        f.then(function (res) {
+            console.log(res)
+        })
+    },2000)
+
+</script>
+</body>
+</html>
