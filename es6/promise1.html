@@ -112,7 +112,7 @@
                         });
                         break;
                 }
-            })
+            });
             return nextPromise;
         };
         // 如何实现链式调用  已经实现链式调用。
@@ -149,7 +149,7 @@
             setTimeout(function () {
                 resolve(123);
             })
-        })
+        });
 
         p.then(function (res) {
             console.log(res);
