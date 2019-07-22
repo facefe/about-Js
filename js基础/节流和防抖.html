@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="throttle">click</div>
+<br>
+<br>
+<br>
+<br>
+<input type="text" class="input">
+<script>
+    //节流函数
+    /**
+     *  规定时间内只能让事件绑定函数执行一次。
+     * @param hander
+     * @param wait
+     * @returns {Function}
+     */
+
+    function throttle(hander, wait) {
+        let lastTime = 0;
+        return function () {
+            let nowTime = new Date().getTime();
+            if (nowTime - lastTime > wait) {
+                hander.apply(this, arguments);
+                lastTime = nowTime;
+            }
+        }
+    }
+
+    document.getElementsByClassName('throttle')[0].onclick = throttle(function (e) {
+        console.log(e);
+        console.log(this);
+    }, 1000);
+
+    /**
+     * 防抖函数
+     * 比较多的应用在 实时搜索  和 拖拽函数
+     *
+     */
+
+    function debounce(hander, delay) {
+        let timer = null;
+        // 两个函数都是典型的闭包。
+        return function () {
+            let self = this,
+                arg = arguments;
+            // console.log(arg);
+            /**
+             * 这里传入 argument,
+             * 事件绑定函数 e 事件原对象是浏览器默认传入的 默认第一个参数就是。
+             * 因此 argument 默认第一位有值。
+             */
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                hander.apply(self, arg);
+            }, delay)
+        }
+    }
+
+    document.getElementsByClassName('input')[0].oninput = debounce(function (   ) {
+        console.log(1)
+    },1000);
+
+    /**
+     * 上面传入 arguments 的情况类似于 下面的写法。
+     */
+
+    // let ar = '123451'
+    // function f(show) {
+    // }
+    // // f 是外部定义 传进去的 防抖或者节流函数,
+    // // 但是无论 当以函数的时候传入几个形式参数，
+    // // 函数执行都只是传进去了一个函数 因此 定义的时候定义多个参数没有意义。 执行的时候没有实际参数
+    // f(ar);
+</script>
+</body>
+</html>

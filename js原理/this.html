@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /**
+     * this 可以认为是 函数执行时候的 执行环境对象。
+     */
+
+    /**
+     * 函数执行默认指向window
+     */
+    function f() {
+        var a = 1;
+        let f1 = function () {
+            console.log(a);
+        }
+        return f1;
+    }
+
+    var f3 = f();
+    console.log(f3.prototype)
+
+    // function f() {
+    //
+    // }
+    // console.log(f.prototype)
+</script>
+</body>
+</html>

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47af60c5-a739-405b-8f39-708423aa730e" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/es6/Promise2.html" beforeDir="false" afterPath="$PROJECT_DIR$/es6/Promise2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/变量提升.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/变量提升.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/移动端设置/em.html" beforeDir="false" afterPath="$PROJECT_DIR$/移动端设置/em.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/es6/promise1.html" beforeDir="false" afterPath="$PROJECT_DIR$/es6/promise1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js原理/原型链.html" beforeDir="false" afterPath="$PROJECT_DIR$/js原理/原型链.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,6 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="627373925">
       <usages-collector id="statistics.file.extensions.edit">
@@ -87,11 +87,21 @@
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+=======
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js原理/new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="545">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/es6/Generator.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3143" />
@@ -127,6 +137,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="433">
               <caret line="112" column="23" lean-forward="true" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
+=======
+        <entry file="file://$PROJECT_DIR$/js原理/原型链.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1577">
+              <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
             </state>
           </provider>
         </entry>
@@ -158,6 +174,7 @@
         <option value="$PROJECT_DIR$/es6/async.await.js" />
         <option value="$PROJECT_DIR$/es6/new.html" />
         <option value="$PROJECT_DIR$/es6/promise1.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/es6/itor.js" />
         <option value="$PROJECT_DIR$/es6/iterator.html" />
         <option value="$PROJECT_DIR$/es6/iterator1.html" />
@@ -177,6 +194,17 @@
     <option name="y" value="20" />
     <option name="width" value="1675" />
     <option name="height" value="960" />
+=======
+        <option value="$PROJECT_DIR$/js原理/原型链.html" />
+        <option value="$PROJECT_DIR$/js原理/new.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="13" />
+    <option name="width" value="1409" />
+    <option name="height" value="920" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -198,6 +226,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,8 +249,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,6 +256,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/86138/Desktop/about-Js/es6/Promise2.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563425025723" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/WebStorm" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v6.5.0/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -259,14 +288,19 @@
       <workItem from="1563158655871" duration="4425000" />
       <workItem from="1563194570276" duration="987000" />
       <workItem from="1563195611067" duration="11375000" />
+<<<<<<< HEAD
       <workItem from="1563283477872" duration="707000" />
       <workItem from="1563284255346" duration="2000" />
       <workItem from="1563372669854" duration="3476000" />
       <workItem from="1563454294765" duration="10216000" />
+=======
+      <workItem from="1563416961069" duration="5103000" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="42221000" />
   </component>
   <component name="TodoView">
@@ -283,6 +317,15 @@
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18278146" />
+=======
+    <option name="totallyTimeSpent" value="29098000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="13" y="0" width="1409" height="920" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0437361" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -315,9 +358,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/移动端设置/em.html">
@@ -376,6 +416,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/es6/iterator.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -387,6 +428,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/es6/Promise2.html">
+=======
+    <entry file="file://$PROJECT_DIR$/js原理/手写applycall.html">
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
@@ -438,15 +482,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/es6/iterator1.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="433">
           <caret line="112" column="23" lean-forward="true" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
+=======
+        <state relative-caret-position="5280">
+          <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/es6/symbol1.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1080">
           <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+=======
+        <state relative-caret-position="243">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js原理/原型链.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1577">
+          <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js原理/new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
         </state>
       </provider>
     </entry>

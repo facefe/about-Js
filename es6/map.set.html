@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // Set
+    // // add 方法用于向 set 添加项
+    // let s = new Set();
+    // [1, 2, 3, 4, 5, 6].forEach(item => s.add(item));
+    // for (let i of s){
+    //     console.log(i) // 1, 2, 3, 4, 5, 6
+    // }
+
+    // Set 中不允许有重复的值
+    // new Set 初始化可以接受任何具有 Iterator 的数据结构
+    // let set = new Set('张三');
+    // console.log(set);  //Set(2) {"张", "三"}  String 也可以
+
+    // Set 具有size属性 表示长度
+    /**
+     * 用Set去重
+     */
+    // 去除数组的重复成员
+    //[...new Set(array)]
+
+    //[...new Set('ababbc')].join('')
+    // 字符串去重
+
+    // 另外在Set中  NaN 和 NaN 是相同的
+    // let set = new Set();
+    // set.add(NaN);
+    // set.add(NaN);
+    // console.log(set); // Set(1) {NaN}\
+
+    // 在Set中两个对象总是不相等的。
+
+    /**
+     * Set 操作方法
+     *
+     * Set.prototype.add(value)：   添加某个值，返回 Set 结构本身。
+     * Set.prototype.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+     * Set.prototype.has(value)：   返回一个布尔值，表示该值是否为Set的成员。
+     * Set.prototype.clear()：      清除所有成员，没有返回值。
+     *
+     */
+
+    /**
+     * 遍历方法
+     * Set 结构的实例有四个遍历方法，可以用于遍历成员。
+     *
+     *  Set.prototype.keys()：返回键名的遍历器
+     *  Set.prototype.values()：返回键值的遍历器
+     *  Set.prototype.entries()：返回键值对的遍历器
+     *  Set.prototype.forEach()：使用回调函数遍历每个成员
+     *
+     */
+    /**
+     * 说明的是
+     *  Set 的键名和键值 是一样的
+     *
+     */
+
+    // let set = new Set([1,2,3,4,4,5,6,9]);
+
+    // let keys = set.keys();
+    // console.log(keys);
+    // let values = set.values();
+    // console.log(values);
+    // let entries = set.entries();
+    // console.log(entries);
+
+    // console.log(set[3]); 不支持 。。
+    /**
+     *
+     * SetIterator {1, 2, 3, 4, 5, …}
+     * {1, 2, 3, 4, 5, …}
+     * {1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, …}
+     *
+     */
+
+
+
+
+</script>
+</body>
+</html>

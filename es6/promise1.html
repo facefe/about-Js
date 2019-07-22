@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+<<<<<<< HEAD
 <script>
 
     function PromiseM(executor) {
@@ -110,7 +113,153 @@
         });
         return nextPromose;
     };
+=======
+    <script>
+        function PromiseM(executor) {
+            var self = this;
+            self.status = "padding";
+            self.resolveValue = null;
+            self.rejectReason = null;
+            self.resolveCallBackList = [];
+            self.rejectCallBackList = [];
+            var resolve = function (value) {
+                if (self.status === "padding") {
+                    self.status = "Fulfilled";
+                    self.resolveValue = value;
+                    self.resolveCallBackList.forEach(function (func) {
+                        func(value);
+                    })
+                }
+            };
 
-</script>
+            var reject = function (reason) {
+                if (self.status === "padding") {
+                    self.status = "Rejected";
+                    self.rejectReason = reason;
+                    self.rejectCallBackList.forEach(function (func) {
+                        func(reason);
+                    })
+                }
+            };
+
+            try {
+                executor(resolve, reject)
+            } catch (e) {
+                reject(e);
+            }
+        }
+
+        PromiseM.prototype.then = function (onFulfilled, onRejected) {
+
+            var self = this;
+            /**
+            判断执行一下如果then中没有传入函数参数的情况下 直接让参数传递给先一个函数
+            .*/
+            if (!onFulfilled) {
+                var onFulfilled  = function (val) {
+                    return val;
+                }
+            }
+            if (!onRejected) {
+                var onRejected = function(reason) {
+                    throw new Error(reason);
+                }
+            }
+
+            let nextPromise = new PromiseM(function (resolve, reject) {
+                switch (self.status) {
+                    case "Fulfilled":
+                        setTimeout(() => {
+                            try {
+                                var nextValue = onFulfilled(self.resolveValue);
+                                resolve(nextValue);
+                            } catch (e) {
+                                reject(e);
+                            }
+                        });
+                        break;
+                    case "Rejected":
+                        setTimeout(() => {
+                            try {
+                                var nextValue = onRejected(self.rejectReason);
+                                resolve(nextValue);
+                            } catch (e) {
+                                reject(e);
+                            }
+                        });
+                        break;
+                    /**
+                    在这里 promise 在对待同步任务和异步任务是分别对待的。
+                    如果是判断为同步任务就会立即执行 ( 但是真实的promise 会注册微任务在这一轮事件的末尾执行)
+                    但是如果是异步任务则会注册进promise中的异步任务数组，等待异步任务结束拿到结果执行
+                    */
+                    case "padding":
+                        self.resolveCallBackList.push(function (val) {
+                            setTimeout(() => {
+                                try {
+                                    var nextValue = onFulfilled(val);
+                                    resolve(nextValue);
+                                } catch (e) {
+                                    reject(e);
+                                }
+                            });
+                        });
+                        self.rejectCallBackList.push(function (val) {
+                            setTimeout(() => {
+                                try {
+                                    var nextValue = onRejected(val);
+                                    resolve(nextValue);
+                                } catch (e) {
+                                    reject(e);
+                                }
+                            });
+                        });
+                        break;
+                }
+            });
+            return nextPromise;
+        };
+        // 如何实现链式调用  已经实现链式调用。
+        // 如果传入的参数是promise 对象的情况还没有处理。
+
+
+        // let p = new Promise(function (resolve, reject) {
+        //     resolve(1);
+        //     console.log(2);
+        // })
+        // p.then(function (res) {
+        //     console.log(res);
+        // })
+        // console.log(3);
+        /**
+         * promise 的resolve会在一轮时间的末尾执行。 微任务
+         */
+
+
+
+
+        // let p = new Promise(function (resolve, reject) {
+        //     setTimeout(function () {
+        //         resolve(123)
+        //     },1000)
+        // });
+        // setTimeout(function () {
+        //     p.then(function (res) {
+        //         console.log(res);
+        //     })
+        // },3000)
+
+        let p = new PromiseM(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(123);
+            })
+        });
+>>>>>>> b7b8b343a2743005726f7227d2eda38e7fe1c1ce
+
+        p.then(function (res) {
+            console.log(res);
+        })
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    /**
+     ?
+     如何实现一个new
+     ?
+     */
+    function Person() {
+        this.name = 'name';
+    }
+
+    let person = new Person();
+
+    function f(a, b, c) {
+        this.name = 'name';
+    }
+
+    f.prototype.show = function () {
+        console.log('f.prototype.show')
+    };
+    f.show = function () {
+        console.log(123)
+    };
+    /**
+     * 这里可以直接在函数上定义属性或者方法 都会添加在f对象上 可以执行。
+     * 而且在proto上定义的相同函数或者属性会被屏蔽。
+     */
+    console.log(f.prototype);
+    console.log(f.prototype.__prototype__ === Person.prototype.__prototype__);  // 详细解释 ==
+    console.log(12345)
+    console.log(f.__prototype__ === Person.__prototype__)
+
+    /**
+     * 这里打印true 的原因是所有的函数原型默认都指向Object函数 （还有构造函数和普通函数没有什么不同 只是new的过程不同而已）
+     *
+    /**
+     ?
+     以下是f.protetype的打印结果
+     {constructor: ƒ}
+     constructor: ƒ f(a, b, c)
+     __proto__: Object
+
+     以下是直接打印f 的结果 即 console.log(f);
+     ƒ f(a, b, c) {
+            this.name = 'name';
+        }
+     就是直接打印f函数会直接打印出函数体
+
+     f.prototype 会打印出 f 函数的prototype属性
+     为一个对象包含包含两项  {
+            constructor: 指向 f 函数自己。(其中包含 f 函数的各种属性)
+            __proto__: 指向 f 函数的原型 ( 一般的普通函数都是指向 Object )
+        
+        可以将constructor 函数展开 (可以通过这种方法，看到函数的各项属性和方法之类的)
+        constructor: ƒ f(a, b, c)
+         arguments: null
+         caller: null
+         length: 3
+         name: "f"
+         prototype: {constructor: ƒ}
+         __proto__: ƒ ()
+         [[FunctionLocation]]: new.html?_ijt=et2pfj…eedpgb989aea96nv:23
+         [[Scopes]]: Scopes[2]
+     */
+</script>
+</body>
+
+</html>
