@@ -10,64 +10,106 @@
 <body>
 <script>
 
-function PromiseM(executor) {
-    var self = this;
-    self.status = "padding";
-    self.resolveValue = null;
-    self.rejectReason = null;
-    self.resolveCallBackList = [];
-    self.rejectCallBackList = [];
-    function resolve(value) {
-        if (self.status === "padding") {
-            self.status = "Fulfilled";
-            self.resolveValue = value;
-            self.resolveCallBackList.forEach(function (ele) {
-                ele(value);
-            })
+    function PromiseM(executor) {
+        var self = this;
+        self.status = "padding";
+        self.resolveValue = null;
+        self.rejectReason = null;
+        self.resolveCallBackList = [];
+        self.rejectCallBackList = [];
+
+        function resolve(value) {
+            if (self.status === "padding") {
+                self.status = "Fulfilled";
+                self.resolveValue = value;
+                self.resolveCallBackList.forEach(function (ele) {
+                    ele(value);
+                })
+            }
+        }
+
+        function reject(reason) {
+            if (self.status === "padding") {
+                self.status = "Rejected";
+                self.rejectReason = reason;
+                self.rejectCallBackList.forEach(function (ele) {
+                    ele(reason);
+                })
+            }
+        }
+
+        try {
+            executor(resolve, reject)
+        }
+        catch (e) {
+            reject(e);
         }
     }
 
-    function reject(reason) {
-        if (self.status === "padding") {
-            self.status = "Rejected";
-            self.rejectReason = reason;
-            self.rejectCallBackList.forEach(function (ele) {
-                ele(reason);
-            })
+    PromiseM.prototype.then = function (onFulfilled, onRejected) {
+
+        if (!onFulfilled) {
+            onFulfilled = function (val) {
+                return val;
+            }
         }
-    }
+        if (!onRejected) {
+            onRejected = function (reason) {
+                throw new Error(reason);
+            }
+        }
+        var self = this;
 
-    try {
-        executor(resolve, reject)
-    }
-    catch (e) {
-        reject(e);
-    }
-}
+        var nextPromose = new PromiseM(function (resolve, reject) {
+            switch (self.status) {
+                case "Fulfilled":
+                    setTimeout(function () {
+                        try {
+                            var onFulfilledRet = onFulfilled(self.resolveValue);
+                            resolve(onFulfilledRet);
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
 
-PromiseM.prototype.then = function (onFulfilled, onRejected) {
-    var self = this;
-    if (self.status === "Fulfilled") {
-        onFulfilled(self.resolveValue)
-    } else if (self.status === "Rejected") {
-        onRejected(self.rejectReason)
-    }
-    if (self.status === "padding") {
-        self.resolveCallBackList.push(onFulfilled);
-        self.rejectCallBackList.push(onRejected);
-    }
-};
+                    break;
+                case "Rejected":
+                    setTimeout(function () {
+                        try {
+                            var onRejectedRet = onRejected(self.rejectReason);
+                            resolve(onRejectedRet);
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
 
-let f = new PromiseM(function (resolve, reject) {
-        setTimeout(function () {
-            resolve(111)
-        })
-});
-    setTimeout(function () {
-        f.then(function (res) {
-            console.log(res)
-        })
-    },2000)
+                    break;
+                case "padding":
+                    self.resolveCallBackList.push(function (val) {
+                        try {
+                            // setTimeout(function () {
+                            var onFulfilledRet = onFulfilled(val);
+                            resolve(onFulfilledRet);
+                            // });
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
+                    self.rejectCallBackList.push(function (val) {
+                        try {
+                            // setTimeout(function () {
+                            var onRejectedRet = onRejected(val);
+                            resolve(onRejectedRet);
+                            // });
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
+                    break;
+            }
+        });
+        return nextPromose;
+    };
 
 </script>
 </body>
