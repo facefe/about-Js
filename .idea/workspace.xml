@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47af60c5-a739-405b-8f39-708423aa730e" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/es6/promise1.html" beforeDir="false" afterPath="$PROJECT_DIR$/es6/promise1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js原理/原型链.html" beforeDir="false" afterPath="$PROJECT_DIR$/js原理/原型链.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,19 +16,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js原理/new.html">
+        <entry file="file://$PROJECT_DIR$/js基础/防抖和节流.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js原理/原型链.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
-              <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+            <state relative-caret-position="56">
+              <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -42,6 +32,7 @@
       <find>romiseM</find>
       <find>resolveCallBackLis</find>
       <find>padding</find>
+      <find>timer</find>
     </findStrings>
     <replaceStrings>
       <replace>P</replace>
@@ -60,13 +51,15 @@
         <option value="$PROJECT_DIR$/es6/promise1.html" />
         <option value="$PROJECT_DIR$/js原理/原型链.html" />
         <option value="$PROJECT_DIR$/js原理/new.html" />
+        <option value="$PROJECT_DIR$/js基础/防抖和节流.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="width" value="1409" />
-    <option name="height" value="920" />
+    <option name="x" value="16" />
+    <option name="y" value="5" />
+    <option name="width" value="1501" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -88,7 +81,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -100,20 +92,17 @@
             <path>
               <item name="about-Js" type="b2602c69:ProjectViewProjectNode" />
               <item name="about-Js" type="462c0819:PsiDirectoryNode" />
-              <item name="es6" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="about-Js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="about-Js" type="462c0819:PsiDirectoryNode" />
-              <item name="js原理" type="462c0819:PsiDirectoryNode" />
+              <item name="js基础" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/86138/Desktop/about-Js/es6/Promise2.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -121,7 +110,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/WebStorm" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v6.5.0/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -150,17 +139,17 @@
       <workItem from="1563194570276" duration="987000" />
       <workItem from="1563195611067" duration="11375000" />
       <workItem from="1563416961069" duration="5103000" />
+      <workItem from="1563757239426" duration="6871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29098000" />
+    <option name="totallyTimeSpent" value="35969000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="0" width="1409" height="920" extended-state="0" />
-    <editor active="true" />
+    <frame x="16" y="5" width="1501" height="830" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0437361" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13738893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -209,11 +198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js基础/闭包.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js基础/js正则表达式.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -238,12 +222,6 @@
         <state relative-caret-position="-411" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/es6/arr.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/es6/Generator.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/es6/itor.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -266,17 +244,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js原理/new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js原理/原型链.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
+        <state relative-caret-position="650">
           <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js原理/new.html">
+    <entry file="file://$PROJECT_DIR$/es6/Generator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/es6/arr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js基础/闭包.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js基础/防抖和节流.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
         </state>
       </provider>
     </entry>
