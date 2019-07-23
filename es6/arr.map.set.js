@@ -15,8 +15,8 @@ Array.prototype.unique = function () {
     })
     return resArr
 }
-let arr = [1, '1', 1]
-var arr1 = arr.unique()
+let arrMapSet = [1, '1', 1]
+var arr1 = arrMapSet.unique()
 console.log(arr1)
 
 // ES6 的数据结构:set map

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    // 迭代器 (遍历器) Iterator 生成器
+    // 数据的迭代
+    // 数组 对象 Map Set
+    // 数组的迭代
+    // for
+    // map forEach filter
+    //
+
+    // 特点:
+    // 每个迭代器对象都有next方法，返回结果对象，
+    // value:每次迭代的对象，done:迭代是否已经结束 boolean值
+
+    // 每个迭代器都有专用指针，开始时候指向第一个数据，
+    // 每次迭代，指针下移，done:变化
+    // 迭代器支持 for of 循环  ... 操作符号
+    /**
+     *
+     * iterator 函数就是一个接口 可以理解为 java 中的接口 各个函数都可以去实现这个接口 只要实现这个几口就可以使用对应的方法
+     * ... 运算符号 for of 循环 之类的
+     */
+
+    let arr = [1, 2, 3, 4]
+
+    function oIterator(arr = []) {
+        //创建一个可以迭代数组的迭代器，
+        let nextI = 0;
+        return {
+            next: function () {
+                if (nextI < arr.length) {
+                    return {
+                        value: arr[nextI++],
+                        done: false
+                    }
+                } else {
+                    return {
+                        value: undefined,
+                        done: true
+                    }
+                }
+            }
+        }
+    }
+
+    // let oA = oIterator(arr);
+    // console.log(oA.next());
+    // console.log(oA.next());
+    // console.log(oA.next());
+    // console.log(oA.next());
+    // console.log(oA.next());
+    // 简单的为数组实现 iterator 函数
+
+    // 理解以下就好
+
+    // 有哪些默认的Iterator接口
+    // Array
+    // Map
+    // Set
+    // String
+    // arguments
+    // Nodelists
+
+    // 实现的接口名称
+    // Symbol(Symbol.iterator)
+    /**
+     * 默认对象是没有iterator接口的
+     * 原因是接口大约是为线性结构实现的接口
+     * 但是对象不是线性结构
+     */
+        // 模拟为对象实现 iterator 接口
+
+
+    let a = {
+            name: "XX",
+            age: 20,
+            job: 'teacher',
+            [Symbol.iterator]() {
+                const self = this;
+                const keys = Object.keys(self);
+                let index = 0;
+                return {
+                    next() {
+                        if (index < keys.length) {
+                            return {
+                                value: self[keys[index++]],
+                                done: false
+                            };
+                        } else {
+                            return {value: undefined, done: true};
+                        }
+                    }
+                }
+            }
+        };
+
+    let b = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+
+    // let c = Object.keys(b);
+    // let d = Object.entries(b)
+    // console.log(c)
+    // console.log(d)
+    console.log(...a)
+
+</script>
+
+
+</body>
+</html>
